@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import './spotify-widget.css'
 import './poncho-design.css'
+import './hero-contrast-fix.css'
 import App from './App.jsx'
 
 function SpotifyWidget() {

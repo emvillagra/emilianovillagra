@@ -4,6 +4,7 @@ import './index.css'
 import './spotify-widget.css'
 import './poncho-design.css'
 import './hero-contrast-fix.css'
+import './desktop-compact.css'
 import App from './App.jsx'
 
 function SpotifyWidget() {
@@ -19,9 +20,26 @@ function SpotifyWidget() {
   return null
 }
 
+function InstagramLink() {
+  useEffect(() => {
+    const social = document.querySelector('.social')
+    if (!social || document.querySelector('.instagram-link')) return
+    const link = document.createElement('a')
+    link.className = 'instagram-link'
+    link.href = 'https://www.instagram.com/emiliano.musica/'
+    link.target = '_blank'
+    link.rel = 'noreferrer'
+    link.textContent = 'Instagram'
+    social.prepend(link)
+    return () => link.remove()
+  }, [])
+  return null
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
     <SpotifyWidget />
+    <InstagramLink />
   </StrictMode>,
 )

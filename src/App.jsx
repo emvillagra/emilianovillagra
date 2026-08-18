@@ -2,6 +2,7 @@ import { ArrowUpRight, Menu, Play, Music2 } from "lucide-react";
 import "./App.css";
 import "./enhancements.css";
 import "./widget.css";
+import "./iphone-polish.css";
 import "./responsive-media.css";
 const hero="https://www.contextotucuman.com/uploads/2025/09/25/47575_7.jpg";
 const images=["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVQpNND4vEVx9W2qASbHH-cI6Dh_EDMJEDW42z4SxspB528gEZQMoYaLPM&s=10","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUaP5bkGwGl2QY4kfFJyIl8_-UsTQERBWPKiJVwN9DCpPveyNTksT9L596&s=10","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ1AdvYDHQAz5-UmLGOCGAP-BatW6DSoNAYdUilhl6J4SwXBx2_8gG8VI&s=10"];

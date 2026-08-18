@@ -5,6 +5,8 @@ import './spotify-widget.css'
 import './poncho-design.css'
 import './hero-contrast-fix.css'
 import './desktop-compact.css'
+import './poncho-presence.css'
+import './instagram-embeds.css'
 import App from './App.jsx'
 
 function SpotifyWidget() {
@@ -36,10 +38,34 @@ function InstagramLink() {
   return null
 }
 
+function InstagramEmbeds() {
+  useEffect(() => {
+    const facebook = document.querySelector('.facebook')
+    if (!facebook || document.querySelector('.instagram-embeds')) return
+    const section = document.createElement('section')
+    section.className = 'instagram-embeds'
+    section.innerHTML = `<div class="instagram-title"><p>Instagram</p><h2>Desde el<br><i>escenario.</i></h2><span>Momentos, canciones y camino compartido.</span></div><div class="instagram-grid"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/emiliano.musica/reel/DY7zwhrBvMT/" data-instgrm-version="14"></blockquote><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/emiliano.musica/reel/DO98OcODmD5/" data-instgrm-version="14"></blockquote><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/emiliano.musica/reel/DPsQseqDj8r/" data-instgrm-version="14"></blockquote></div>`
+    facebook.after(section)
+    const existing = document.querySelector('script[data-instagram-embed]')
+    if (existing && window.instgrm) window.instgrm.Embeds.process()
+    else {
+      const script = document.createElement('script')
+      script.async = true
+      script.src = 'https://www.instagram.com/embed.js'
+      script.dataset.instagramEmbed = 'true'
+      script.onload = () => window.instgrm?.Embeds.process()
+      document.body.appendChild(script)
+    }
+    return () => section.remove()
+  }, [])
+  return null
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
     <SpotifyWidget />
     <InstagramLink />
+    <InstagramEmbeds />
   </StrictMode>,
 )
